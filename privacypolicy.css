@@ -1,0 +1,166 @@
+
+    :root {
+      --accent: #44a7c0;
+      --accent-dark: #2b7c8d;
+      --text-light: #e7ebf3;
+      --glass-bg: rgba(255, 255, 255, 0.05);
+      --border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Page Setup */
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text-light);
+      background: linear-gradient(rgba(3,10,20,0.7), rgba(3,10,20,0.9)), url('./assets/bg4.jpeg') center/cover no-repeat fixed;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      padding: 5rem 1.5rem 4rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    /* Gradient Heading */
+    .gradient-text {
+      background: linear-gradient(90deg, #a2b7d4 0%, #39547a 50%, #3a485b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-align: center;
+      animation: slideDown 1s ease;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: rgba(231, 235, 243, 0.8);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Section Card */
+    .privacy-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin: 0 auto 3rem;
+      max-width: 900px;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px) saturate(120%);
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .privacy-card:nth-of-type(2) { animation-delay: 0.2s; }
+    .privacy-card:nth-of-type(3) { animation-delay: 0.4s; }
+    .privacy-card:nth-of-type(4) { animation-delay: 0.6s; }
+
+    .privacy-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .privacy-card h2 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, var(--accent) 0%, #83d8e8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .privacy-card p, 
+    .privacy-card li {
+      color: rgba(231, 235, 243, 0.85);
+      line-height: 1.7;
+      font-size: 1.02rem;
+    }
+
+    .privacy-card ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .privacy-card ul li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    /* Keyframes */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-25px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Contact Section */
+    .contact-card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 16px;
+      text-align: center;
+      max-width: 700px;
+      margin: 2rem auto 4rem;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+    }
+
+    .contact-card a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-card a:hover {
+      color: #7bd8e8;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: auto;
+      /* background: rgba(3, 10, 20, 0.65);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(255, 255, 255, 0.1); */
+      text-align: center;
+      padding: 24px 0 16px;
+    }
+
+    .footer-line {
+      width: 85%;
+      height: 2px;
+      margin: 0 auto 12px auto;
+      border-radius: 2px;
+      background: linear-gradient(90deg, rgba(68,167,192,0.2), rgba(68,167,192,0.5));
+    }
+
+    .footer-link {
+      text-decoration: none;
+      color: rgba(224, 235, 245, 0.85);
+      font-weight: 500;
+      margin: 0 10px;
+      transition: all 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .text-muted {
+      color: rgba(26, 130, 159, 0.6) !important;
+    }

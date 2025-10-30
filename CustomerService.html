@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Service | City Weather & Pollution Trends</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="CustomerService.css">
+</head>
+
+<body>
+  <main class="container text-center">
+    <h1 class="gradient-text mb-4 display-6">Customer Support</h1>
+
+    <section class="support-card mx-auto" style="max-width: 800px;">
+      <p class="lead">
+        We’re here to help — anytime you need!
+        At <strong>City Weather & Pollution Trends</strong>, our mission is to make your experience smooth, insightful, and stress-free.
+      </p>
+
+      <h5 class="fw-bold mt-4 mb-3">Here’s how we can help:</h5>
+      <ul class="text-start mx-auto" style="max-width: 600px;">
+        <li>🌦️ Get clear explanations about weather & pollution data</li>
+        <li>⚙️ Fix any bugs or technical issues you run into</li>
+        <li>💡 Share your ideas or feedback to make our app better</li>
+        <li>🔐 Need help signing in or saving cities? We’re on it!</li>
+      </ul>
+
+      <h5 class="fw-bold mt-4 mb-3">Contact Us</h5>
+      <p>Email: <a href="mailto:hello@cityweatherpollutiontrends.com">hello@cityweatherpollutiontrends.com</a></p>
+      <p>Support Hours: <strong>Mon–Fri, 9 AM – 6 PM (IST)</strong></p>
+      <p class="mt-3">
+        We’re a small team with big goals — helping you understand your city’s environment better, one trend at a time. 🌍💚
+      </p>
+    </section>
+
+    <section class="mt-5">
+      <p class="fw-semibold">Need quick help or collaboration?</p>
+      <a
+        href="#"
+        class="btn btn-outline-light btn-sm px-4"
+        data-bs-toggle="modal"
+        data-bs-target="#contactModal"
+      >
+        Contact / Collaborate
+      </a>
+    </section>
+  </main>
+
+  <!-- Contact / Collaborate Modal -->
+  <div class="modal fade contact-modal" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content glass-card border-0">
+        <div class="modal-header border-0">
+          <h5 class="modal-title gradient-text" id="contactModalLabel">
+            <i class="bi bi-envelope-paper me-2"></i>Contact / Collaborate
+          </h5>
+          <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body pt-0">
+          <form id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label small">Your Name</label>
+                <input type="text" class="form-control form-control-dark" name="name" placeholder="Enter your name" required>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label small">Email</label>
+                <input type="email" class="form-control form-control-dark" name="email" placeholder="Enter your email" required>
+              </div>
+              <div class="col-12">
+                <label class="form-label small">Topic</label>
+                <select id="topic" class="form-select form-control-dark" required>
+                  <option value="">Choose a topic</option>
+                  <option>General Support</option>
+                  <option>Bug / Technical Issue</option>
+                  <option>Feature Idea / Feedback</option>
+                  <option>Collaboration</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label small">Message</label>
+                <textarea class="form-control form-control-dark" name="message" rows="4" placeholder="Tell us how we can help…" required></textarea>
+              </div>
+              <div class="col-12">
+                <label class="form-label small">Attachment (optional)</label>
+                <input type="file" class="form-control form-control-dark" name="file">
+              </div>
+
+              <div class="form-check d-flex align-items-center gap-2 mt-2">
+                <input class="form-check-input" type="checkbox" id="consentCheck" required>
+                <label class="form-check-label small text-white" for="consentCheck">
+                  I agree to be contacted regarding my request.
+                </label>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-end gap-2 mt-4">
+              <button type="button" class="btn btn-secondary btn-soft" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-accent">
+                <i class="bi bi-send me-1"></i> Send
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer border-0 pt-0">
+          <small class="text-muted">Support Hours: Mon–Fri, 9 AM – 6 PM (IST)</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast (success) -->
+  <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+    <div id="contactToast" class="toast align-items-center text-bg-dark border-0" role="status" aria-live="polite" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i class="bi bi-check2-circle me-2"></i>Thanks! We’ve received your request.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-line"></div>
+    <div>
+      <a href="./index.html" class="footer-link">Home</a>
+      <a href="./aboutus.html" class="footer-link">About Us</a>
+      <a href="./CustomerService.html" class="footer-link">Customer Service</a>
+      <a href="./privacypolicy.html" class="footer-link">Privacy Policy</a>
+    </div>
+    <div class="copyright mt-2">© 2025 City Comparison Dashboard. All rights reserved.</div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Minimal page JS: validate, close modal, show toast -->
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      const toastEl = document.getElementById('contactToast');
+      const toast = new bootstrap.Toast(toastEl, { delay: 2500 });
+      const modalEl = document.getElementById('contactModal');
+      const contactModal = new bootstrap.Modal(modalEl);
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Basic HTML5 validity check
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return;
+        }
+
+        // Simulate success: close modal + show toast
+        contactModal.hide();
+        // reset form after a beat so it doesn't flash during fade
+        setTimeout(() => { form.reset(); form.classList.remove('was-validated'); }, 300);
+        toast.show();
+      }, false);
+    })();
+  </script>
+</body>
+</html>

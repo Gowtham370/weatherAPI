@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>City Weather & Pollution — Analysis</title>
+
+  <!-- Chart.js + zoom plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.2.0/dist/chartjs-plugin-zoom.min.js"></script>
+
+  <link rel="stylesheet" href="analysis.css" />
+</head>
+<body>
+  <div class="wrap">
+    <h1>City Weather & Pollution — Analysis</h1>
+
+    <div class="controls">
+      <!-- Native select (upgraded by JS). If JS fails, this still works. -->
+      <select id="filterRange" title="Time range" aria-label="Time range">
+        <option value="all">All</option>
+        <option value="365">Past Year</option>
+        <option value="30">Past Month</option>
+        <option value="7">Past Week</option>
+      </select>
+
+      <button id="reloadBtn" class="btn primary">Reload</button>
+      <button id="backBtn" class="btn secondary">Back</button>
+    </div>
+
+    <div id="status" class="status">Initializing…</div>
+
+    <!-- Suggestion banner -->
+    <div id="suggestionBanner" class="suggestion-banner" hidden>
+      <div class="title">Suggestion</div>
+      <div class="body" id="suggestion">Waiting for analysis…</div>
+    </div>
+
+    <!-- Compare summary (two city cards with diagonal separator) -->
+    <div id="compareSummaryWrap" class="compare-summary" hidden>
+      <div id="cmpLeft" class="cmp-card"></div>
+      <div class="cmp-sep" aria-hidden="true"></div>
+      <div id="cmpRight" class="cmp-card"></div>
+    </div>
+
+    <div class="two-col">
+      <div>
+        <div id="chartsRoot"></div>
+        <div id="warn" class="muted" style="margin-top:6px"></div>
+      </div>
+
+      <aside class="insight-box">
+        <h3>Insight</h3>
+        <div id="insights" class="muted">Waiting for analysis…</div>
+      </aside>
+    </div>
+
+    <footer>© 2025 City Comparison Dashboard — JSON mode</footer>
+  </div>
+
+  <!-- Keep JS in its own file; defer so DOM is ready -->
+  <script src="analysis.js" defer></script>
+</body>
+</html>

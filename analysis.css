@@ -1,0 +1,131 @@
+:root{
+  --bg:#03121a;
+  --card:rgba(255,255,255,0.03);
+  --muted:#9fb6c3;
+  --accent:#44a7c0;
+  --accent-2:#ff6b6b;
+  --panel-border:rgba(135,156,186,0.18);
+  --text:#e7eef6;
+  --glass:rgba(255,255,255,0.01);
+}
+
+/* Base */
+*{box-sizing:border-box}
+html,body{height:100%}
+html,body{
+  margin:0;
+  font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  color:var(--text);
+  background:
+    linear-gradient(rgba(3,10,20,0.72), rgba(3,10,20,0.86)),
+    url("./assets/bg4.jpeg") center/cover fixed no-repeat;
+}
+.wrap{max-width:1200px;margin:28px auto;padding:18px}
+
+/* Heading */
+h1{
+  text-align:center;margin:0 0 6px;font-size:1.6rem;
+  background:linear-gradient(90deg,#b8d5e8,#2f5f7b);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+
+/* Controls */
+.controls{display:flex;gap:10px;justify-content:center;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+select#filterRange{
+  padding:8px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);
+  background:rgba(255,255,255,0.06);color:var(--text);font-weight:600;
+}
+
+/* Buttons */
+.btn{border-radius:10px;padding:8px 14px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text);cursor:pointer;font-weight:600}
+.btn.primary{background:var(--accent);color:#041615;border:none;box-shadow:0 6px 18px rgba(68,167,192,0.12)}
+.btn.secondary{background:#0b1a1d;border:1px solid rgba(255,255,255,0.04)}
+
+/* Status */
+.status{text-align:center;color:var(--muted);margin-bottom:12px}
+
+/* Suggestion banner */
+.suggestion-banner{
+  display:flex;gap:12px;align-items:flex-start;
+  background:linear-gradient(180deg,rgba(255,255,255,0.01),rgba(255,255,255,0.005));
+  border:1px solid rgba(255,255,255,0.02);padding:14px;border-radius:10px;margin-bottom:14px;
+  box-shadow:0 10px 28px rgba(0,0,0,0.5);
+}
+.suggestion-banner .title{font-weight:700;color:var(--muted);min-width:120px;margin-right:8px}
+.suggestion-banner .body{color:var(--muted);line-height:1.35;white-space:pre-line;flex:1}
+
+/* Compare summary */
+.compare-summary{display:flex;align-items:stretch;gap:12px;margin-bottom:18px}
+.cmp-card{
+  background:var(--card);border-radius:10px;padding:12px;border:1px solid var(--panel-border);
+  box-shadow:0 12px 30px rgba(0,0,0,0.45);flex:1;min-height:120px
+}
+.cmp-city{font-weight:700;margin-bottom:8px;color:var(--accent);text-transform:capitalize}
+.cmp-metric{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:6px 0;border-top:1px dashed rgba(255,255,255,0.06)}
+.cmp-metric:first-of-type{border-top:0}
+.m-title{color:var(--muted);font-size:.85rem}
+.m-value{font-weight:700;font-size:1.05rem;color:var(--text);min-width:80px;text-align:right}
+
+/* Layout */
+.two-col{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:start}
+@media (max-width:980px){.two-col{grid-template-columns:1fr}}
+
+/* Charts */
+.chart-card{margin-bottom:18px;padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.012),rgba(255,255,255,0.008));border:1px solid rgba(255,255,255,0.02)}
+.chart-title{font-weight:700;color:var(--muted);margin-bottom:8px}
+.axis-label{font-size:13px;color:var(--muted);margin-top:8px}
+canvas{width:100% !important;height:380px !important;display:block;border-radius:6px;background:var(--glass)}
+
+/* Insights */
+.insight-box{background:var(--card);border-radius:10px;padding:12px;border:1px solid var(--panel-border);box-shadow:0 12px 30px rgba(0,0,0,0.45)}
+.insight-box h3{margin:0 0 8px;color:var(--muted);font-size:1rem}
+
+/* Footer + helpers */
+footer{margin-top:18px;text-align:center;color:var(--muted);font-size:.9rem}
+.muted{color:var(--muted);font-size:.9rem}
+
+/* ---- Enhanced Select (CSS; JS toggles .open) ---- */
+.enhanced-select{position:relative;min-width:180px;isolation:isolate}
+.enhanced-select .es-button{
+  width:100%;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.12);
+  color:var(--text);display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03));
+  backdrop-filter:blur(8px) saturate(120%);-webkit-backdrop-filter:blur(8px) saturate(120%);
+  transition:border-color .25s ease,box-shadow .25s ease,transform .08s ease;
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);cursor:pointer
+}
+.enhanced-select .es-button:hover{border-color:rgba(68,167,192,0.45);box-shadow:0 8px 22px rgba(68,167,192,0.15)}
+.enhanced-select .es-button:active{transform:translateY(1px)}
+.enhanced-select .es-label{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:600;opacity:.95}
+.enhanced-select .es-chevron{width:18px;height:18px;display:grid;place-items:center;border-radius:50%;background:rgba(255,255,255,0.1);transition:transform .25s ease}
+.enhanced-select.open .es-chevron{transform:rotate(180deg)}
+.enhanced-select .es-menu{
+  position:absolute;left:0;right:0;top:calc(100% + 10px);border-radius:12px;border:1px solid rgba(255,255,255,0.10);
+  background:rgba(10,14,16,0.78);backdrop-filter:blur(12px) saturate(150%);-webkit-backdrop-filter:blur(12px) saturate(150%);
+  box-shadow:0 18px 40px rgba(0,0,0,0.55),0 6px 18px rgba(68,167,192,0.10);overflow:hidden;
+  pointer-events:none;opacity:0;transform:translateY(-8px) scaleY(.94);transition:opacity .22s ease,transform .22s ease;max-height:0
+}
+.enhanced-select.open .es-menu{pointer-events:auto;opacity:1;transform:translateY(0) scaleY(1);max-height:320px}
+.enhanced-select .es-list{list-style:none;margin:0;padding:6px;max-height:280px;overflow:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.15) transparent}
+.enhanced-select .es-list::-webkit-scrollbar{width:8px}
+.enhanced-select .es-list::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.12);border-radius:8px}
+.enhanced-select .es-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:9px;color:var(--text);cursor:pointer;transition:background .18s ease}
+.enhanced-select .es-item + .es-item{margin-top:2px}
+.enhanced-select .es-item:hover,
+.enhanced-select .es-item[aria-selected="true"],
+.enhanced-select .es-item.es-active{background:rgba(68,167,192,0.12);box-shadow:inset 0 0 0 1px rgba(68,167,192,0.18);color:#cfeff8}
+.enhanced-select .es-dot{width:8px;height:8px;border-radius:50%;background:rgba(68,167,192,0.9);opacity:.85}
+
+/* Hide native select ONLY when enhanced widget is present */
+body.enhanced select#filterRange{
+  position:absolute!important;opacity:0!important;pointer-events:none!important;width:0;height:0
+}
+
+/* Hide native select once enhanced */
+#filterRange.native-hidden{
+  position:absolute !important;
+  left:-9999px !important;
+  width:1px; height:1px;
+  opacity:0 !important;
+  pointer-events:none !important;
+}

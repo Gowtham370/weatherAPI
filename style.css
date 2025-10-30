@@ -1,0 +1,168 @@
+:root {
+  --accent: #44a7c0;
+  --accent-dark: #25748a;
+  --text-light: #e7ebf3;
+  --muted: rgba(231, 235, 243, 0.7);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ---------- Base ---------- */
+body {
+  background: linear-gradient(rgba(3,10,20,0.7), rgba(3,10,20,0.85)),
+              url(./assets/bg4.jpeg) no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text-light);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  opacity: 1;
+  transition: opacity .6s ease;
+}
+body.fade-out { opacity: 0; }
+
+main { flex: 1; animation: fadeIn .9s ease both; }
+@keyframes fadeIn { from {opacity:0} to {opacity:1} }
+
+/* ---------- Frosted Card ---------- */
+.frosted-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 10px 26px rgba(0,0,0,.2);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: blur(8px) saturate(120%);
+  transition: transform .3s ease, box-shadow .3s ease;
+  animation: fadeUp .8s ease both;
+}
+.frosted-card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(0,0,0,.35) }
+@keyframes fadeUp { from {opacity:0; transform:translateY(40px)} to {opacity:1; transform:none} }
+
+/* ---------- Tabs ---------- */
+.soft-tab {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(135,156,186,.25);
+  color: #8fb0c0;
+  font-weight: 700;
+  border-radius: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  transition: color .25s, transform .2s;
+}
+.soft-tab:hover { color: var(--accent); transform: translateY(-2px) }
+.soft-tab.active {
+  color: var(--accent) !important;
+  background: linear-gradient(135deg, rgba(68,167,192,.2), rgba(37,116,138,.35));
+  border: 1px solid rgba(68,167,192,.3);
+}
+.tab-pane.fade { opacity: 0; transform: translateY(8px); transition: opacity .3s, transform .4s }
+.tab-pane.fade.show { opacity: 1; transform: none }
+
+/* ---------- Inputs ---------- */
+.input-group-text {
+  background: rgba(135,156,186,.1);
+  border-color: rgba(135,156,186,.3);
+}
+.form-control {
+  border-color: rgba(135,156,186,.35);
+  background: transparent;
+  color: var(--text-light);
+  border-radius: 12px;
+  padding: .9rem 1rem;
+}
+.form-control::placeholder { color: rgba(192,192,192,.8) }
+.form-control:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 12px rgba(68,167,192,.25);
+  background: rgba(255,255,255,.03);
+}
+
+/* ---------- Buttons ---------- */
+.btn-outline-cus {
+  background: rgba(68,167,192,.1);
+  border: 1px solid rgba(68,167,192,.3);
+  color: #bcd9e4;
+  border-radius: 10px;
+  transition: all .3s ease;
+}
+.btn-outline-cus:hover { background: var(--accent); color: #fff; transform: translateY(-2px) }
+
+.cus-text-col { color: #c7d5e0 }
+
+/* ---------- Gradient Title ---------- */
+.gradient-text {
+  background: linear-gradient(90deg, #a2b7d4 0%, #39547a 50%, #3a485b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: slideDown 1s ease both;
+}
+@keyframes slideDown { from {opacity:0; transform:translateY(-20px)} to {opacity:1; transform:none} }
+
+/* ---------- Footer ---------- */
+.footer { width: 100%; text-align: center; padding: 20px 0 12px; animation: fadeIn 1.2s ease both }
+.footer-line {
+  width: 85%; height: 2px; margin: 0 auto 12px; border-radius: 2px;
+  background: linear-gradient(90deg, rgba(68,167,192,.2), rgba(68,167,192,.5));
+}
+.footer-link {
+  text-decoration: none; color: rgba(224,235,245,.85); font-weight: 500; margin: 0 10px; transition: all .3s;
+}
+.footer-link:hover { color: var(--accent); transform: translateY(-2px) }
+.text-muted { color: rgba(26,130,159,.6) !important }
+.container-footer { width: 100%; font-size: larger }
+
+/* ---------- City Suggestion Dropdown ---------- */
+.city-suggest-wrap {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;                 /* was 50% — now aligned with input width */
+  z-index: 1000;
+
+  background: rgba(10,14,16,.8);
+  border: 1px solid rgba(255,255,255,.08);
+  backdrop-filter: blur(10px) saturate(130%);
+  -webkit-backdrop-filter: blur(10px) saturate(130%);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.45);
+
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity .25s, transform .25s;
+}
+.city-suggest-wrap.visible { opacity: 1; transform: none; pointer-events: auto; animation: dropdownFadeIn .25s ease forwards }
+
+.city-suggest-list {
+  list-style: none; padding: 6px 0; margin: 0;
+  max-height: 200px; overflow-y: auto;
+  scrollbar-width: thin; scrollbar-color: rgba(68,167,192,.3) transparent;
+}
+.city-suggest-list::-webkit-scrollbar { width: 6px }
+.city-suggest-list::-webkit-scrollbar-thumb { background: rgba(68,167,192,.25); border-radius: 10px }
+.city-suggest-list::-webkit-scrollbar-thumb:hover { background: rgba(68,167,192,.45) }
+
+.city-suggest-item {
+  padding: 10px 16px;
+  font-size: 1rem;
+  color: #e7eef3;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+  transition: background .18s, transform .1s, color .18s;
+}
+.city-suggest-item:not(:last-child)::after {
+  content: ""; position: absolute; bottom: 0; left: 10%; width: 80%; height: 1px; background: rgba(255,255,255,.1);
+}
+.city-suggest-item:hover,
+.city-suggest-item.active {
+  background: rgba(68,167,192,.12);
+  color: #c8f4ff;
+  transform: translateX(2px);
+  box-shadow: inset 0 0 10px rgba(68,167,192,.15);
+}
+@keyframes dropdownFadeIn { from {opacity:0; transform: translateY(-6px)} to {opacity:1; transform:none} }
+
