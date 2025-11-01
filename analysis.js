@@ -112,7 +112,7 @@ function buildDailySeries(rows, keys) {
     pm25: dates.map((d) => avg(buckets[d].pm)),
     aqi: dates.map((d) => avg(buckets[d].aqi)),
   };
-}
+} 
 function mean(a) {
   const b = (a || []).filter((v) => v != null);
   return b.length ? b.reduce((s, v) => s + v, 0) / b.length : null;
