@@ -2,51 +2,99 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>City Weather & Pollution — Analysis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — City Weather & Pollution Trends</title>
 
-  <!-- Chart.js + zoom plugin -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.2.0/dist/chartjs-plugin-zoom.min.js"></script>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap Icons (optional, used elsewhere in project) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
-  <link rel="stylesheet" href="analysis.css" />
+  <!-- Page styles -->
+  <link rel="stylesheet" href="aboutus.css">
 </head>
+
 <body>
-  <div class="wrap">
-    <h1>City Weather & Pollution — Analysis</h1>
+  <main class="container">
+    <h1 class="text-center gradient-text mb-5 display-6">About Us</h1>
 
-    <div class="controls">
-      <!-- Native select (upgraded by JS). If JS fails, this still works. -->
-      <select id="filterRange" title="Time range" aria-label="Time range">
-        <option value="all">All</option>
-        <option value="365">Past Year</option>
-        <option value="30">Past Month</option>
-        <option value="7">Past Week</option>
-      </select>
+    <!-- Intro -->
+    <section class="about-card mb-4">
+      <h2 class="h4 fw-bold mb-3">City Weather & Pollution Trends</h2>
+      <p class="lead">Our platform provides powerful tools to visualize how weather and air quality evolve across cities over time.</p>
+      <p>Through intuitive charts and interactive comparisons, we make environmental data accessible for <strong>students, researchers, and communities</strong> to make informed decisions about climate and urban health.</p>
+    </section>
 
-      <button id="reloadBtn" class="btn primary">Reload</button>
-      <button id="backBtn" class="btn secondary">Back</button>
-    </div>
+    <!-- Features -->
+    <section class="about-card mb-4">
+      <h3 class="fw-bold mb-3">What We Do</h3>
 
-    <div id="status" class="status">Initializing…</div>
-
-    <!-- The summary grid (cards + quick takeaways) is inserted by JS above chartsRoot -->
-
-    <div class="two-col">
-      <div>
-        <div id="chartsRoot"></div>
-        <div id="warn" class="muted" style="margin-top:6px"></div>
+      <div class="feature">
+        <div class="icon" aria-hidden="true">🌦️</div>
+        <div>
+          <strong>Weather Insights</strong><br>
+          Visualize changes in temperature, humidity, and rainfall with interactive charts.
+        </div>
       </div>
 
-      <aside class="insight-box">
-        <h3>Insight</h3>
-        <div id="insights" class="muted">Waiting for analysis…</div>
-      </aside>
+      <div class="feature">
+        <div class="icon" aria-hidden="true">🌫️</div>
+        <div>
+          <strong>Pollution Analysis</strong><br>
+          Compare AQI and pollutant levels between multiple cities and historical timelines.
+        </div>
+      </div>
+
+      <div class="feature">
+        <div class="icon" aria-hidden="true">📊</div>
+        <div>
+          <strong>Data Visualization</strong><br>
+          Clean, responsive charts designed to convey data stories effectively.
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission / Vision -->
+    <section class="about-card mb-4">
+      <h3 class="fw-bold mb-3">Our Mission</h3>
+      <p>Make environmental intelligence understandable and actionable—empowering users to monitor, predict, and improve air quality and weather awareness.</p>
+
+      <h3 class="fw-bold mt-4 mb-3">Our Vision</h3>
+      <p>Become a trusted, research-friendly platform for sustainable city insights — bridging technology and climate awareness for the next generation.</p>
+    </section>
+
+    <!-- Dev note -->
+    <section class="about-card mb-4">
+      <h3 class="fw-bold mb-3">Developer’s Note</h3>
+      <p>This project showcases design-driven front-end and data-ready architecture—blending aesthetics with analytical depth.</p>
+      <p>
+        <a href="#">View project source</a> ·
+        <a href="#">See live demo</a>
+      </p>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center mt-5">
+      <p class="fw-semibold mb-2">Want to collaborate?</p>
+      <a href="./CustomerService.html" class="btn btn-outline-light btn-sm px-4">Get in Touch</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-line"></div>
+    <div class="mb-1">
+      <a href="./index.html" class="footer-link">Home</a>
+      <a href="./aboutus.html" class="footer-link">About Us</a>
+      <a href="./CustomerService.html" class="footer-link">Customer Service</a>
+      <a href="./privacypolicy.html" class="footer-link">Privacy Policy</a>
     </div>
+    <div class="copyright mt-2">© 2025 City Comparison Dashboard. All rights reserved.</div>
+  </footer>
 
-    <footer>© 2025 City Comparison Dashboard — JSON mode</footer>
-  </div>
-
-  <script src="analysis.js" defer></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
