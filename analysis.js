@@ -366,7 +366,7 @@ async function loadAndRender(force=false){
           ${cityCardHtml({ name:winner.name, overall:winner.score, tag:"Best overall", color:GREEN,  avg:winner.avg, opponentAvg:loser.avg })}
         </div>
         <div>
-          ${cityCardHtml({ name:loser.name,  overall:loser.score,  tag:"Runner-up",    color:ORANGE, avg:loser.avg,  opponentAvg:winner.avg })}
+          ${cityCardHtml({ name:loser.name,  overall:loser.score,  tag:"Moderate",    color:ORANGE, avg:loser.avg,  opponentAvg:winner.avg })}
         </div>`;
       summaryZone.appendChild(grid);
 
